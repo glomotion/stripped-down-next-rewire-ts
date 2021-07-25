@@ -1,0 +1,13 @@
+{
+  "componentFolder": "src",
+  "testFiles": "**/*.cy.test.{js,ts,jsx,tsx}",
+  "video": false,
+  "nodeVersion": "system",
+  "env": {
+    "coverage": false
+  },
+  "viewportWidth": 500,
+  "viewportHeight": 500,
+  "defaultCommandTimeout": 5000,
+  "projectId": "XXXXXXXXX"
+}

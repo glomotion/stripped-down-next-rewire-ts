@@ -1,0 +1,21 @@
+/*
+
+  GLOBAL STYLES
+
+  Please, think very carefully before putting stuff in here.
+  The only things that belong in here are styles for the elements that
+  sit outside of React's reach (eg html, body and #app).
+  Everything else should go into modular style files (*.module.css)
+*/
+
+/*
+  During the production build there is an issue where this @import from the Design System
+  is not defined first, thus failing to load as @import statements must be defined first.
+  Maybe related: https://github.com/vercel/next.js/issues/16630
+*/
+
+#__next {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
