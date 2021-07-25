@@ -1,7 +1,16 @@
+import { useSimpleHook } from "./simple-number.hook";
+
 interface MooPropTypes {
   name: string;
 }
 
+export const demoString = () => "how now, brown";
+
 export function Moo({ name }: MooPropTypes) {
-  return <div>{name}</div>;
+  const { number } = useSimpleHook();
+  return (
+    <div>
+      {name} {demoString()} {number}
+    </div>
+  );
 }

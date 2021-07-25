@@ -1,1 +1,1 @@
-export { Moo, $imports } from "./Moo.component";
+export { Moo } from "./Moo.component";
