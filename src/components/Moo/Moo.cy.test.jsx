@@ -1,7 +1,5 @@
 import { describe, expect, it } from "local-cypress";
-import { rewire } from "rewire";
-
-const { Moo } = rewire("./Moo.component");
+import { Moo } from "./Moo.component";
 
 describe("rewire tests", () => {
   it("test out rewire", () => {
