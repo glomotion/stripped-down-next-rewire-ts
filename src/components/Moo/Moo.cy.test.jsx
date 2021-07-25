@@ -1,10 +1,11 @@
 import { describe, expect, it } from "local-cypress";
+import { rewire } from "rewire";
 
-import { $imports } from "./Moo.component";
+const { Moo } = rewire("./Moo.component");
 
 describe("rewire tests", () => {
   it("test out rewire", () => {
-    console.log("@@@@@@", $imports);
+    console.log("@@@@@@", Moo);
     expect(true).to.be.true;
   });
 });
