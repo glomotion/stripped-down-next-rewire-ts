@@ -13,8 +13,8 @@ describe("rewire tests", () => {
   beforeEach(() => {
     rewire$demoFunction(() => "holy smokes batman!");
     rewire$useSimpleHook(() => ({ number: 48 }));
-    rewire$demoObject({ moo: "dog" });
-    rewire$demoString("i can totally rewire!");
+    rewire$demoObject({ aww: "yeah!" });
+    rewire$demoString("i can totally rewire");
   });
 
   it("test out rewire", () => {
