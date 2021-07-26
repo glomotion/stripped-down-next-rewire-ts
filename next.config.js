@@ -8,9 +8,15 @@ module.exports = withBundleAnalyzer({
 
     if (!isServer) {
       // @NOTE: get babel to parse the DS, so that the tests can rewire it
+      // config.module.rules[1] === babel loader rule
       config.module.rules[1].include.push(
-        `${process.cwd()}/node_modules/@imtbl/design-system/dist/minified`
+        `${process.cwd()}/node_modules/@imtbl/design-system/dist/minified/index.es.js`
       );
+      config.module.rules[1].include.push(
+        `${process.cwd()}/node_modules/@imtbl/design-system`
+      );
+
+      console.log("@@@@@@@", config.module.rules);
 
       // @NOTE: required to run the launchdarkly-node-client-sdk from _app.tsx
       config.resolve.fallback = {
