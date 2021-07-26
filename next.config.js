@@ -4,8 +4,6 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 module.exports = withBundleAnalyzer({
   webpack: (config, { isServer, webpack }) => {
-    console.log("@@@@@@@@");
-
     if (!isServer) {
       // @NOTE: get babel to parse the DS, so that the tests can rewire it
       // config.module.rules[1] === babel loader rule
