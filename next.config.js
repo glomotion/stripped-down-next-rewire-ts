@@ -1,24 +1,29 @@
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
 });
-const readPkgUp = require('read-pkg-up');
-const logging = require('webpack/lib/logging/runtime');
 
 module.exports = withBundleAnalyzer({
   webpack: (config, { isServer, webpack }) => {
-    // @NOTE: required to run the launchdarkly-node-client-sdk from _app.tsx
+    console.log("@@@@@@@@");
+
     if (!isServer) {
+      // @NOTE: get babel to parse the DS, so that the tests can rewire it
+      config.module.rules[1].include.push(
+        `${process.cwd()}/node_modules/@imtbl/design-system/dist/minified`
+      );
+
+      // @NOTE: required to run the launchdarkly-node-client-sdk from _app.tsx
       config.resolve.fallback = {
-        crypto: require.resolve('crypto-browserify'),
+        crypto: require.resolve("crypto-browserify"),
         fs: false,
-        http: require.resolve('stream-http'),
-        https: require.resolve('https-browserify'),
+        http: require.resolve("stream-http"),
+        https: require.resolve("https-browserify"),
         net: false,
         os: false,
         path: false,
         tls: false,
         zlib: false,
-        stream: require.resolve('stream-browserify'),
+        stream: require.resolve("stream-browserify"),
         constants: false,
       };
     }

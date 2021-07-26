@@ -1,6 +1,6 @@
 import { mount } from "@cypress/react";
 import { describe, cy, it } from "local-cypress";
-import * as moo from "../../../node_modules/@imtbl/design-system/dist/minified";
+import { rewire$SimpleText } from "@imtbl/design-system";
 
 import {
   Moo,
@@ -16,12 +16,13 @@ describe("rewire tests", () => {
     rewire$useSimpleHook(() => ({ number: 48 }));
     rewire$demoObject({ aww: "yeah!" });
     rewire$demoString("i can totally rewire");
-    // rewire$SimpleText(() => <div>fake simple text component</div>);
+    rewire$SimpleText(() => <div>fake simple text component</div>);
   });
 
   it("test out rewire", () => {
     console.log("@@@@@@@", moo);
     mount(<Moo name="POW!" />);
     cy.contains("48").should("exist");
+    cy.contains("fake simple text component").should("exist");
   });
 });
