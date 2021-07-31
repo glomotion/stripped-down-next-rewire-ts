@@ -1,5 +1,5 @@
 import { useSimpleHook } from "./simple-number.hook";
-import { SimpleText } from "@imtbl/design-system/dist/minified";
+import { SimpleText } from "@imtbl/design-system";
 
 interface MooPropTypes {
   name: string;

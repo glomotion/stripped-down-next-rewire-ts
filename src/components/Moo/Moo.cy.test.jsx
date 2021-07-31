@@ -10,11 +10,6 @@ import {
 } from "./Moo.component";
 import { rewire$useSimpleHook } from "./simple-number.hook";
 
-const Stubbed = () => {
-  console.log("@@@@@@@@@@@@@");
-  return <section>this is a stub DS component</section>;
-};
-
 describe("rewire tests", () => {
   beforeEach(() => {
     rewire$demoFunction(() => "holy smokes batman!");
