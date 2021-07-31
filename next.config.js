@@ -4,18 +4,10 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 module.exports = withBundleAnalyzer({
   webpack: (config, { isServer, webpack }) => {
+    config.module.rules.push({ test: /@imtbl/, use: "babel-loader" });
+    console.log("@@@@@@@@@@", config.module.rules);
+
     if (!isServer) {
-      console.log("@@@@@@@", config.module.rules);
-
-      // @NOTE: get babel to parse the DS, so that the tests can rewire it
-      // config.module.rules[1] === babel loader rule
-      config.module.rules[1].include.push(
-        `${process.cwd()}/node_modules/@imtbl/design-system/dist/minified/index.es.js`
-      );
-      config.module.rules[1].include.push(
-        `${process.cwd()}/node_modules/@imtbl/design-system`
-      );
-
       // @NOTE: required to run the launchdarkly-node-client-sdk from _app.tsx
       config.resolve.fallback = {
         crypto: require.resolve("crypto-browserify"),
