@@ -4,7 +4,8 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 module.exports = withBundleAnalyzer({
   webpack: (config, { isServer, defaultLoaders }) => {
-    config.module.rules.push({ test: /@imtbl/, use: defaultLoaders.babel });
+    // @NOTE: this rule now breaks @emotion/css styling. :(
+    // config.module.rules.push({ test: /@imtbl/, use: defaultLoaders.babel });
 
     if (!isServer) {
       // @NOTE: required to run the launchdarkly-node-client-sdk from _app.tsx
