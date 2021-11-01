@@ -1,5 +1,6 @@
-import { useSimpleHook } from "./simple-number.hook";
 import { SimpleText } from "@imtbl/design-system";
+// import { css } from "@emotion/css";
+import { useSimpleHook } from "./simple-number.hook";
 
 interface MooPropTypes {
   name: string;
@@ -15,11 +16,18 @@ export function Moo({ name }: MooPropTypes) {
   const { number } = useSimpleHook();
   return (
     <>
-      <div>
+      <div
+        className={
+          "moo"
+          //   css`
+          //   background: gold;
+          // `
+        }
+      >
         {name} {demoFunction()} {number} {JSON.stringify(demoObject)}{" "}
         {demoString}
       </div>
-      <SimpleText>demo DS component</SimpleText>
+      <SimpleText>demo body text here</SimpleText>
     </>
   );
 }

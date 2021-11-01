@@ -1,1 +1,1 @@
-export const useSimpleHook = () => ({ number: Math.random() });
+export const useSimpleHook = () => ({ number: 987987987 });

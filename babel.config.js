@@ -6,8 +6,7 @@ module.exports = (api) => {
   // babel-jest already adds the istanbul plugin,
   // don't add it again as that breaks babel.
   if (api.env() === "test" && !isJest()) {
-    plugins.push("istanbul");
-    plugins.push("rewire-exports");
+    plugins = [...plugins, "istanbul", "rewire-exports"];
   }
 
   return {
